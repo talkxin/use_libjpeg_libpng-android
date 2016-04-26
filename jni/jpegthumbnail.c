@@ -93,13 +93,15 @@ void imageRule(int* tb_w, int *tb_h, int* q, int w, int h, int quality,
 	switch (quality) {
 	case 1:
 		if (size > 1024 * 200) {
-			if (rx / rz == 3 && ry / rz == 2) {
-				*tb_w = w > h ? 1280 : 854;
-				*tb_h = h > w ? 1280 : 854;
-			} else {
-				*tb_w = w > h ? 1280 : 720;
-				*tb_h = h > w ? 1280 : 720;
-			}
+			*tb_w = w > h ? 1280 : ((int) (1280 / (float) (1.0 * h / w)));
+			*tb_h = h > w ? 1280 : ((int) (1280 / (float) (1.0 * w / h)));
+			//			if (rx / rz == 3 && ry / rz == 2) {
+			//				*tb_w = w > h ? 1280 : 854;
+			//				*tb_h = h > w ? 1280 : 854;
+			//			} else {
+			//				*tb_w = w > h ? 1280 : 720;
+			//				*tb_h = h > w ? 1280 : 720;
+			//			}
 			*q = 65;
 		} else {
 			*tb_w = w;
@@ -109,13 +111,15 @@ void imageRule(int* tb_w, int *tb_h, int* q, int w, int h, int quality,
 		break;
 	case 2:
 		if (size > 1024 * 50) {
-			if (rx / rz == 3 && ry / rz == 2) {
-				*tb_w = w > h ? 390 : 260;
-				*tb_h = h > w ? 390 : 260;
-			} else {
-				*tb_w = w > h ? 480 : 270;
-				*tb_h = h > w ? 480 : 270;
-			}
+			*tb_w = w > h ? 480 : ((int) (480 / (float) (1.0 * h / w)));
+			*tb_h = h > w ? 480 : ((int) (480 / (float) (1.0 * w / h)));
+			//			if (rx / rz == 3 && ry / rz == 2) {
+			//				*tb_w = w > h ? 390 : 260;
+			//				*tb_h = h > w ? 390 : 260;
+			//			} else {
+			//				*tb_w = w > h ? 480 : 270;
+			//				*tb_h = h > w ? 480 : 270;
+			//			}
 			*q = 50;
 		} else {
 			*tb_w = w;
@@ -159,7 +163,9 @@ int generate_image_thumbnail(const char* inputFile, const char* outputFile,
 		buff = ReadJpeg(inputFile, &w, &h);
 		break;
 	case 2:
-		buff = ReadPng(inputFile, &w, &h);
+		png_to_jpeg(inputFile, outputFile, 100);
+		buff = ReadJpeg(outputFile, &w, &h);
+		remove(outputFile);
 		break;
 	default:
 		buff = ReadJpeg(inputFile, &w, &h);
@@ -182,9 +188,9 @@ int generate_image_thumbnail(const char* inputFile, const char* outputFile,
 	return 1;
 }
 
-long Java_com_example_testjpg_NativeUtil_compressBitmap2(JNIEnv* env,
-		jobject thiz, jbyteArray input, jbyteArray output, jboolean optimize,
-		int quality) {
+long Java_com_allstar_cinclient_tools_image_ImageNativeUtil_zoomcompress(
+		JNIEnv* env, jobject thiz, jbyteArray input, jbyteArray output,
+		jboolean optimize, int quality) {
 	char * inputfile = jstrinTostring(env, input);
 	char * outputfile = jstrinTostring(env, output);
 	return generate_image_thumbnail(inputfile, outputfile, optimize, quality);

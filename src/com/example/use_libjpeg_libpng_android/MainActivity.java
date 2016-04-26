@@ -5,8 +5,9 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import com.example.testjpg.ImageTools.Quality;
-import com.example.testjpg.NativeUtil;
+import com.allstar.cinclient.tools.image.ImageNativeUtil;
+import com.allstar.cinclient.tools.image.ImageTools;
+import com.allstar.cinclient.tools.image.ImageTools.Quality;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -59,8 +60,8 @@ public class MainActivity extends Activity {
 			public void run() {
 				try {
 					String file = "/sdcard/test/test.JPG";
-					Log.i("test", NativeUtil.compressBitmap(file, "/sdcard/test/yasuoBIG.jpg", Quality.BIG) + "");
-					Log.i("test", NativeUtil.compressBitmap(file, "/sdcard/test/yasuoTHUM.jpg", Quality.THUM) + "");
+					ImageTools.saveCommpressImage(file, Quality.BIG, "/sdcard/test/yasuoBIG.jpg");
+					ImageTools.saveCommpressImage(file, Quality.THUM, "/sdcard/test/yasuoBIG.jpg");
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

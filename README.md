@@ -5,3 +5,5 @@
 
 有关升级libjpeg与libpng参考我的博客：
 http://blog.csdn.net/talkxin
+
+新增协议修改，参照微信图片分辨率

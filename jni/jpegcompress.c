@@ -8,6 +8,9 @@
 //#include "config.h"
 #include "jpegcompress.h"
 
+
+#define LIGHT_MAP_SIZE 65536*3
+
 struct my_error_mgr {
 	struct jpeg_error_mgr pub;
 
@@ -145,8 +148,10 @@ int write_JPEG_file(const char * filename, unsigned char* image_buffer,
 		fprintf(stderr, "can't open %s\n", filename);
 		return 0;
 	}
-	jpeg_stdio_dest(&cinfo, outfile);
-
+	//jpeg_stdio_dest(&cinfo, outfile);
+	char jpgBuffer[LIGHT_MAP_SIZE];
+	int nJpgSize = 0;
+	jpeg_stdio_dest(&cinfo, jpgBuffer, &nJpgSize);
 	cinfo.image_width = image_width; /* image width and height, in pixels */
 	cinfo.image_height = image_height;
 	cinfo.input_components = 3; /* # of color components per pixel */
@@ -166,10 +171,12 @@ int write_JPEG_file(const char * filename, unsigned char* image_buffer,
 
 	jpeg_finish_compress(&cinfo);
 	fclose(outfile);
-
 	jpeg_destroy_compress(&cinfo);
 
-	return 1;
+    char* outFile=malloc(nJpgSize);
+    memcpy(outFile,jpgBuffer,nJpgSize);
+
+	return nJpgSize;
 }
 
 int write_JPEG_file_android(unsigned char* data, int w, int h, int quality,
@@ -183,11 +190,13 @@ int write_JPEG_file_android(unsigned char* data, int w, int h, int quality,
 		return 0;
 	}
 	jpeg_create_compress(&jcs);
-	FILE* f = fopen(outfilename, "wb");
-	if (f == NULL) {
-		return 0;
-	}
-	jpeg_stdio_dest(&jcs, f);
+	//FILE* f = fopen(outfilename, "wb");
+	//if (f == NULL) {
+	//	return 0;
+	//}
+	char jpgBuffer[LIGHT_MAP_SIZE];
+    int nJpgSize = 0;
+    jpeg_stdio_dest(&jcs, jpgBuffer, &nJpgSize);
 	jcs.image_width = w;
 	jcs.image_height = h;
 
@@ -213,6 +222,8 @@ int write_JPEG_file_android(unsigned char* data, int w, int h, int quality,
 	}
 	jpeg_finish_compress(&jcs);
 	jpeg_destroy_compress(&jcs);
-	fclose(f);
-	return 1;
+	//fclose(f);
+	char* outFile=malloc(nJpgSize);
+    memcpy(outFile,jpgBuffer,nJpgSize);
+	return nJpgSize;
 }

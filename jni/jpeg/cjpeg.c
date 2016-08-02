@@ -41,7 +41,7 @@
 
 
 /* Create the add-on message string table. */
-
+#define LIGHT_MAP_SIZE 65536*3
 #define JMESSAGE(code,string)	string ,
 
 static const char * const cdjpeg_message_table[] = {
@@ -573,7 +573,9 @@ main (int argc, char **argv)
   file_index = parse_switches(&cinfo, argc, argv, 0, TRUE);
 
   /* Specify data destination for compression */
-  jpeg_stdio_dest(&cinfo, output_file);
+  char jpgBuffer[LIGHT_MAP_SIZE];
+  int nJpgSize = 0;
+  jpeg_stdio_dest(&cinfo, jpgBuffer, &nJpgSize);
 
   /* Start compressor */
   jpeg_start_compress(&cinfo, TRUE);

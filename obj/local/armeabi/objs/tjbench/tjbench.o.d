@@ -1,5 +1,5 @@
-/home/young/workspace/use_libjpeg_libpng-android/obj/local/armeabi/objs/tjbench/tjbench.o: \
- /home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/tjbench.c \
+/home/young/git/use_libjpeg_libpng-android/obj/local/armeabi/objs/tjbench/tjbench.o: \
+ /home/young/git/use_libjpeg_libpng-android/jni/jpeg/tjbench.c \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/stdio.h \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/sys/cdefs.h \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/sys/cdefs_elf.h \
@@ -36,17 +36,17 @@
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/asm/errno.h \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/asm-generic/errno.h \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/asm-generic/errno-base.h \
- /home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/cdjpeg.h \
- /home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/jinclude.h \
- /home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/jconfig.h \
- /home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/jpeglib.h \
- /home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/jmorecfg.h \
- /home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/jerror.h \
- /home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/cderror.h \
- /home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/./bmp.h \
- /home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/././turbojpeg.h \
- /home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/./tjutil.h \
- /home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/./turbojpeg.h
+ /home/young/git/use_libjpeg_libpng-android/jni/jpeg/cdjpeg.h \
+ /home/young/git/use_libjpeg_libpng-android/jni/jpeg/jinclude.h \
+ /home/young/git/use_libjpeg_libpng-android/jni/jpeg/jconfig.h \
+ /home/young/git/use_libjpeg_libpng-android/jni/jpeg/jpeglib.h \
+ /home/young/git/use_libjpeg_libpng-android/jni/jpeg/jmorecfg.h \
+ /home/young/git/use_libjpeg_libpng-android/jni/jpeg/jerror.h \
+ /home/young/git/use_libjpeg_libpng-android/jni/jpeg/cderror.h \
+ /home/young/git/use_libjpeg_libpng-android/jni/jpeg/./bmp.h \
+ /home/young/git/use_libjpeg_libpng-android/jni/jpeg/././turbojpeg.h \
+ /home/young/git/use_libjpeg_libpng-android/jni/jpeg/./tjutil.h \
+ /home/young/git/use_libjpeg_libpng-android/jni/jpeg/./turbojpeg.h
 
 /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/stdio.h:
 
@@ -120,24 +120,24 @@
 
 /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/asm-generic/errno-base.h:
 
-/home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/cdjpeg.h:
+/home/young/git/use_libjpeg_libpng-android/jni/jpeg/cdjpeg.h:
 
-/home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/jinclude.h:
+/home/young/git/use_libjpeg_libpng-android/jni/jpeg/jinclude.h:
 
-/home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/jconfig.h:
+/home/young/git/use_libjpeg_libpng-android/jni/jpeg/jconfig.h:
 
-/home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/jpeglib.h:
+/home/young/git/use_libjpeg_libpng-android/jni/jpeg/jpeglib.h:
 
-/home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/jmorecfg.h:
+/home/young/git/use_libjpeg_libpng-android/jni/jpeg/jmorecfg.h:
 
-/home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/jerror.h:
+/home/young/git/use_libjpeg_libpng-android/jni/jpeg/jerror.h:
 
-/home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/cderror.h:
+/home/young/git/use_libjpeg_libpng-android/jni/jpeg/cderror.h:
 
-/home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/./bmp.h:
+/home/young/git/use_libjpeg_libpng-android/jni/jpeg/./bmp.h:
 
-/home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/././turbojpeg.h:
+/home/young/git/use_libjpeg_libpng-android/jni/jpeg/././turbojpeg.h:
 
-/home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/./tjutil.h:
+/home/young/git/use_libjpeg_libpng-android/jni/jpeg/./tjutil.h:
 
-/home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/./turbojpeg.h:
+/home/young/git/use_libjpeg_libpng-android/jni/jpeg/./turbojpeg.h:

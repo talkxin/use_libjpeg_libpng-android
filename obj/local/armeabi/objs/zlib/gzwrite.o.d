@@ -1,6 +1,6 @@
-/home/young/workspace/use_libjpeg_libpng-android/obj/local/armeabi/objs/zlib/gzwrite.o: \
- /home/young/workspace/use_libjpeg_libpng-android/jni/zlib/gzwrite.c \
- /home/young/workspace/use_libjpeg_libpng-android/jni/zlib/gzguts.h \
+/home/young/git/use_libjpeg_libpng-android/obj/local/armeabi/objs/zlib/gzwrite.o: \
+ /home/young/git/use_libjpeg_libpng-android/jni/zlib/gzwrite.c \
+ /home/young/git/use_libjpeg_libpng-android/jni/zlib/gzguts.h \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/stdio.h \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/sys/cdefs.h \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/sys/cdefs_elf.h \
@@ -20,8 +20,8 @@
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/asm/posix_types.h \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/asm-generic/posix_types.h \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/sys/sysmacros.h \
- /home/young/workspace/use_libjpeg_libpng-android/jni/zlib/zlib.h \
- /home/young/workspace/use_libjpeg_libpng-android/jni/zlib/zconf.h \
+ /home/young/git/use_libjpeg_libpng-android/jni/zlib/zlib.h \
+ /home/young/git/use_libjpeg_libpng-android/jni/zlib/zconf.h \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/limits.h \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/sys/limits.h \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/linux/limits.h \
@@ -60,7 +60,7 @@
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/sys/sysconf.h \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/pathconf.h
 
-/home/young/workspace/use_libjpeg_libpng-android/jni/zlib/gzguts.h:
+/home/young/git/use_libjpeg_libpng-android/jni/zlib/gzguts.h:
 
 /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/stdio.h:
 
@@ -100,9 +100,9 @@
 
 /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/sys/sysmacros.h:
 
-/home/young/workspace/use_libjpeg_libpng-android/jni/zlib/zlib.h:
+/home/young/git/use_libjpeg_libpng-android/jni/zlib/zlib.h:
 
-/home/young/workspace/use_libjpeg_libpng-android/jni/zlib/zconf.h:
+/home/young/git/use_libjpeg_libpng-android/jni/zlib/zconf.h:
 
 /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/limits.h:
 

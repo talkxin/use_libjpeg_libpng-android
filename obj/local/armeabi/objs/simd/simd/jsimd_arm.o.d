@@ -1,7 +1,7 @@
-/home/young/workspace/use_libjpeg_libpng-android/obj/local/armeabi/objs/simd/simd/jsimd_arm.o: \
- /home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/simd/jsimd_arm.c \
- /home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/simd/../jinclude.h \
- /home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/simd/../jconfig.h \
+/home/young/git/use_libjpeg_libpng-android/obj/local/armeabi/objs/simd/simd/jsimd_arm.o: \
+ /home/young/git/use_libjpeg_libpng-android/jni/jpeg/simd/jsimd_arm.c \
+ /home/young/git/use_libjpeg_libpng-android/jni/jpeg/simd/../jinclude.h \
+ /home/young/git/use_libjpeg_libpng-android/jni/jpeg/simd/../jconfig.h \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/stdlib.h \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/sys/cdefs.h \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/sys/cdefs_elf.h \
@@ -28,14 +28,14 @@
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/sys/sysmacros.h \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/memory.h \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/stdio.h \
- /home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/simd/../jpeglib.h \
- /home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/simd/../jmorecfg.h \
- /home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/simd/../jpegint.h \
- /home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/simd/../jerror.h \
- /home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/simd/../jsimd.h \
- /home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/simd/../jdct.h \
- /home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/simd/../jsimddct.h \
- /home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/simd/jsimd.h \
+ /home/young/git/use_libjpeg_libpng-android/jni/jpeg/simd/../jpeglib.h \
+ /home/young/git/use_libjpeg_libpng-android/jni/jpeg/simd/../jmorecfg.h \
+ /home/young/git/use_libjpeg_libpng-android/jni/jpeg/simd/../jpegint.h \
+ /home/young/git/use_libjpeg_libpng-android/jni/jpeg/simd/../jerror.h \
+ /home/young/git/use_libjpeg_libpng-android/jni/jpeg/simd/../jsimd.h \
+ /home/young/git/use_libjpeg_libpng-android/jni/jpeg/simd/../jdct.h \
+ /home/young/git/use_libjpeg_libpng-android/jni/jpeg/simd/../jsimddct.h \
+ /home/young/git/use_libjpeg_libpng-android/jni/jpeg/simd/jsimd.h \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/elf.h \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/linux/auxvec.h \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/asm/auxvec.h \
@@ -45,9 +45,9 @@
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/machine/elf_machdep.h \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/ctype.h
 
-/home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/simd/../jinclude.h:
+/home/young/git/use_libjpeg_libpng-android/jni/jpeg/simd/../jinclude.h:
 
-/home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/simd/../jconfig.h:
+/home/young/git/use_libjpeg_libpng-android/jni/jpeg/simd/../jconfig.h:
 
 /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/stdlib.h:
 
@@ -101,21 +101,21 @@
 
 /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/stdio.h:
 
-/home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/simd/../jpeglib.h:
+/home/young/git/use_libjpeg_libpng-android/jni/jpeg/simd/../jpeglib.h:
 
-/home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/simd/../jmorecfg.h:
+/home/young/git/use_libjpeg_libpng-android/jni/jpeg/simd/../jmorecfg.h:
 
-/home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/simd/../jpegint.h:
+/home/young/git/use_libjpeg_libpng-android/jni/jpeg/simd/../jpegint.h:
 
-/home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/simd/../jerror.h:
+/home/young/git/use_libjpeg_libpng-android/jni/jpeg/simd/../jerror.h:
 
-/home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/simd/../jsimd.h:
+/home/young/git/use_libjpeg_libpng-android/jni/jpeg/simd/../jsimd.h:
 
-/home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/simd/../jdct.h:
+/home/young/git/use_libjpeg_libpng-android/jni/jpeg/simd/../jdct.h:
 
-/home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/simd/../jsimddct.h:
+/home/young/git/use_libjpeg_libpng-android/jni/jpeg/simd/../jsimddct.h:
 
-/home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/simd/jsimd.h:
+/home/young/git/use_libjpeg_libpng-android/jni/jpeg/simd/jsimd.h:
 
 /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/elf.h:
 

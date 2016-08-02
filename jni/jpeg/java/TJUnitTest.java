@@ -1,4 +1,4 @@
-/*
+package jpeg.java;/*
  * Copyright (C)2011 D. R. Commander.  All Rights Reserved.
  *
  * Redistribution and use in source and binary forms, with or without

@@ -1,5 +1,5 @@
-/home/young/workspace/use_libjpeg_libpng-android/obj/local/armeabi/objs/png/pngtest.o: \
- /home/young/workspace/use_libjpeg_libpng-android/jni/png/pngtest.c \
+/home/young/git/use_libjpeg_libpng-android/obj/local/armeabi/objs/png/pngtest.o: \
+ /home/young/git/use_libjpeg_libpng-android/jni/png/pngtest.c \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/stdio.h \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/sys/cdefs.h \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/sys/cdefs_elf.h \
@@ -26,9 +26,9 @@
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/alloca.h \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/strings.h \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/memory.h \
- /home/young/workspace/use_libjpeg_libpng-android/jni/png/png.h \
- /home/young/workspace/use_libjpeg_libpng-android/jni/png/pnglibconf.h \
- /home/young/workspace/use_libjpeg_libpng-android/jni/png/pngconf.h \
+ /home/young/git/use_libjpeg_libpng-android/jni/png/png.h \
+ /home/young/git/use_libjpeg_libpng-android/jni/png/pnglibconf.h \
+ /home/young/git/use_libjpeg_libpng-android/jni/png/pngconf.h \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/limits.h \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/sys/limits.h \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/linux/limits.h \
@@ -93,11 +93,11 @@
 
 /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/memory.h:
 
-/home/young/workspace/use_libjpeg_libpng-android/jni/png/png.h:
+/home/young/git/use_libjpeg_libpng-android/jni/png/png.h:
 
-/home/young/workspace/use_libjpeg_libpng-android/jni/png/pnglibconf.h:
+/home/young/git/use_libjpeg_libpng-android/jni/png/pnglibconf.h:
 
-/home/young/workspace/use_libjpeg_libpng-android/jni/png/pngconf.h:
+/home/young/git/use_libjpeg_libpng-android/jni/png/pngconf.h:
 
 /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/limits.h:
 

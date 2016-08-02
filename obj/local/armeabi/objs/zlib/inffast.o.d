@@ -1,8 +1,8 @@
-/home/young/workspace/use_libjpeg_libpng-android/obj/local/armeabi/objs/zlib/inffast.o: \
- /home/young/workspace/use_libjpeg_libpng-android/jni/zlib/inffast.c \
- /home/young/workspace/use_libjpeg_libpng-android/jni/zlib/zutil.h \
- /home/young/workspace/use_libjpeg_libpng-android/jni/zlib/zlib.h \
- /home/young/workspace/use_libjpeg_libpng-android/jni/zlib/zconf.h \
+/home/young/git/use_libjpeg_libpng-android/obj/local/armeabi/objs/zlib/inffast.o: \
+ /home/young/git/use_libjpeg_libpng-android/jni/zlib/inffast.c \
+ /home/young/git/use_libjpeg_libpng-android/jni/zlib/zutil.h \
+ /home/young/git/use_libjpeg_libpng-android/jni/zlib/zlib.h \
+ /home/young/git/use_libjpeg_libpng-android/jni/zlib/zconf.h \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/limits.h \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/sys/cdefs.h \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/sys/cdefs_elf.h \
@@ -32,15 +32,15 @@
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/alloca.h \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/strings.h \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/memory.h \
- /home/young/workspace/use_libjpeg_libpng-android/jni/zlib/inftrees.h \
- /home/young/workspace/use_libjpeg_libpng-android/jni/zlib/inflate.h \
- /home/young/workspace/use_libjpeg_libpng-android/jni/zlib/inffast.h
+ /home/young/git/use_libjpeg_libpng-android/jni/zlib/inftrees.h \
+ /home/young/git/use_libjpeg_libpng-android/jni/zlib/inflate.h \
+ /home/young/git/use_libjpeg_libpng-android/jni/zlib/inffast.h
 
-/home/young/workspace/use_libjpeg_libpng-android/jni/zlib/zutil.h:
+/home/young/git/use_libjpeg_libpng-android/jni/zlib/zutil.h:
 
-/home/young/workspace/use_libjpeg_libpng-android/jni/zlib/zlib.h:
+/home/young/git/use_libjpeg_libpng-android/jni/zlib/zlib.h:
 
-/home/young/workspace/use_libjpeg_libpng-android/jni/zlib/zconf.h:
+/home/young/git/use_libjpeg_libpng-android/jni/zlib/zconf.h:
 
 /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/limits.h:
 
@@ -100,8 +100,8 @@
 
 /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/memory.h:
 
-/home/young/workspace/use_libjpeg_libpng-android/jni/zlib/inftrees.h:
+/home/young/git/use_libjpeg_libpng-android/jni/zlib/inftrees.h:
 
-/home/young/workspace/use_libjpeg_libpng-android/jni/zlib/inflate.h:
+/home/young/git/use_libjpeg_libpng-android/jni/zlib/inflate.h:
 
-/home/young/workspace/use_libjpeg_libpng-android/jni/zlib/inffast.h:
+/home/young/git/use_libjpeg_libpng-android/jni/zlib/inffast.h:

@@ -1,7 +1,7 @@
-/home/young/workspace/use_libjpeg_libpng-android/obj/local/armeabi/objs/jpeg/jdhuff.o: \
- /home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/jdhuff.c \
- /home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/jinclude.h \
- /home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/jconfig.h \
+/home/young/git/use_libjpeg_libpng-android/obj/local/armeabi/objs/jpeg/jdhuff.o: \
+ /home/young/git/use_libjpeg_libpng-android/jni/jpeg/jdhuff.c \
+ /home/young/git/use_libjpeg_libpng-android/jni/jpeg/jinclude.h \
+ /home/young/git/use_libjpeg_libpng-android/jni/jpeg/jconfig.h \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/stdlib.h \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/sys/cdefs.h \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/sys/cdefs_elf.h \
@@ -28,16 +28,16 @@
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/sys/sysmacros.h \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/memory.h \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/stdio.h \
- /home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/jpeglib.h \
- /home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/jmorecfg.h \
- /home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/jpegint.h \
- /home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/jerror.h \
- /home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/jdhuff.h \
- /home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/jpegcomp.h
+ /home/young/git/use_libjpeg_libpng-android/jni/jpeg/jpeglib.h \
+ /home/young/git/use_libjpeg_libpng-android/jni/jpeg/jmorecfg.h \
+ /home/young/git/use_libjpeg_libpng-android/jni/jpeg/jpegint.h \
+ /home/young/git/use_libjpeg_libpng-android/jni/jpeg/jerror.h \
+ /home/young/git/use_libjpeg_libpng-android/jni/jpeg/jdhuff.h \
+ /home/young/git/use_libjpeg_libpng-android/jni/jpeg/jpegcomp.h
 
-/home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/jinclude.h:
+/home/young/git/use_libjpeg_libpng-android/jni/jpeg/jinclude.h:
 
-/home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/jconfig.h:
+/home/young/git/use_libjpeg_libpng-android/jni/jpeg/jconfig.h:
 
 /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/stdlib.h:
 
@@ -91,14 +91,14 @@
 
 /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/stdio.h:
 
-/home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/jpeglib.h:
+/home/young/git/use_libjpeg_libpng-android/jni/jpeg/jpeglib.h:
 
-/home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/jmorecfg.h:
+/home/young/git/use_libjpeg_libpng-android/jni/jpeg/jmorecfg.h:
 
-/home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/jpegint.h:
+/home/young/git/use_libjpeg_libpng-android/jni/jpeg/jpegint.h:
 
-/home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/jerror.h:
+/home/young/git/use_libjpeg_libpng-android/jni/jpeg/jerror.h:
 
-/home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/jdhuff.h:
+/home/young/git/use_libjpeg_libpng-android/jni/jpeg/jdhuff.h:
 
-/home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/jpegcomp.h:
+/home/young/git/use_libjpeg_libpng-android/jni/jpeg/jpegcomp.h:

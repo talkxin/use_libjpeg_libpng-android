@@ -26,7 +26,7 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-package org.libjpegturbo.turbojpeg;
+package jpeg.java.org.libjpegturbo.turbojpeg;
 
 final class TJLoader {
   static void load() {

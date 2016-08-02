@@ -1,5 +1,5 @@
 #include <string.h>
-#include <android/bitmap.h>
+//#include <android/bitmap.h>
 #include <android/log.h>
 #include <jni.h>
 #include <stdio.h>
@@ -183,9 +183,9 @@ int generate_image_thumbnail(const char* inputFile, const char* outputFile,
 
 	//将缩放后的像素数组保存到jpeg文件
 //	write_JPEG_file(outputFile, img_buf, 65, tb_h, tb_w);
-	write_JPEG_file_android(img_buf, tb_w, tb_h, q, outputFile, optimize);
+	int i=write_JPEG_file_android(img_buf, tb_w, tb_h, q, outputFile, optimize);
 	free(img_buf);
-	return 1;
+	return i;
 }
 
 long Java_com_allstar_cinclient_tools_image_ImageNativeUtil_zoomcompress(

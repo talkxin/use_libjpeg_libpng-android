@@ -26,7 +26,7 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-package org.libjpegturbo.turbojpeg;
+package jpeg.java.org.libjpegturbo.turbojpeg;
 
 /**
  * TurboJPEG utility class (cannot be instantiated)

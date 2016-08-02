@@ -7,6 +7,7 @@
 #include <assert.h>
 #define tmin(a, b) ((a)>(b) ? (b):(a))
 #define tmax(a,b)  ((a) > (b)?(a):(b))
+#define LIGHT_MAP_SIZE 65536*3
 //!1不要将这三个宏同时打开需要互斥
 
 //#define USE_PREMULTIPLY_APLHA (0)//使用预乘
@@ -157,7 +158,10 @@ int png_to_jpeg(const char *pngfile, const char *jpegfile, int jpegquality) {
 
 	cinfo.err = jpeg_std_error(&jerr);
 	jpeg_create_compress(&cinfo);
-	jpeg_stdio_dest(&cinfo, outfp);
+//	jpeg_stdio_dest(&cinfo, outfp);
+	char jpgBuffer[LIGHT_MAP_SIZE];
+	int nJpgSize = 0;
+	jpeg_stdio_dest(&cinfo, jpgBuffer, &nJpgSize);
 
 	cinfo.image_width = width;
 	cinfo.image_height = height;

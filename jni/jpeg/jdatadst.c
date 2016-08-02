@@ -31,7 +31,9 @@ extern void free JPP((void *ptr));
 typedef struct {
   struct jpeg_destination_mgr pub; /* public fields */
 
-  FILE * outfile;		/* target stream */
+  char * outdata;  /* target stream */ // 由 FILE * outfile;  /* target stream */改写
+  int  *pSize;   // 新加变量，该指针为调用者提供，压缩完后返回图像大小
+  int nOutOffset;   // 新加变量
   JOCTET * buffer;		/* start of buffer */
 } my_destination_mgr;
 
@@ -113,12 +115,15 @@ empty_output_buffer (j_compress_ptr cinfo)
 {
   my_dest_ptr dest = (my_dest_ptr) cinfo->dest;
 
-  if (JFWRITE(dest->outfile, dest->buffer, OUTPUT_BUF_SIZE) !=
-      (size_t) OUTPUT_BUF_SIZE)
-    ERREXIT(cinfo, JERR_FILE_WRITE);
+  memcpy(dest->outdata+dest->nOutOffset,dest->buffer,OUTPUT_BUF_SIZE);
+  //if (memcpy(dest->outdata+dest->nOutOffset,dest->buffer,OUTPUT_BUF_SIZE) !=// 由JFWRITE(dest->outfile, dest->buffer, OUTPUT_BUF_SIZE)改写
+  //    (size_t) OUTPUT_BUF_SIZE)
+  //  ERREXIT(cinfo, JERR_FILE_WRITE);
 
   dest->pub.next_output_byte = dest->buffer;
   dest->pub.free_in_buffer = OUTPUT_BUF_SIZE;
+  dest->nOutOffset+=OUTPUT_BUF_SIZE;
+  *(dest->pSize)=dest->nOutOffset;
 
   return TRUE;
 }
@@ -173,13 +178,18 @@ term_destination (j_compress_ptr cinfo)
 
   /* Write any data remaining in the buffer */
   if (datacount > 0) {
-    if (JFWRITE(dest->outfile, dest->buffer, datacount) != datacount)
-      ERREXIT(cinfo, JERR_FILE_WRITE);
+	memcpy(dest->outdata+dest->nOutOffset,dest->buffer,datacount);
+    //if (memcpy(dest->outdata+dest->nOutOffset,dest->buffer,datacount) != datacount) // 由JFWRITE(dest->outfile, dest->buffer, datacount)改写
+    //  ERREXIT(cinfo, JERR_FILE_WRITE);
+
+	dest->nOutOffset+=datacount;
+	*(dest->pSize)=dest->nOutOffset;
   }
-  fflush(dest->outfile);
+
+  ///fflush(dest->outfile);
   /* Make sure we wrote the output file OK */
-  if (ferror(dest->outfile))
-    ERREXIT(cinfo, JERR_FILE_WRITE);
+ /// if (ferror(dest->outfile))
+  ///  ERREXIT(cinfo, JERR_FILE_WRITE);
 }
 
 #if JPEG_LIB_VERSION >= 80
@@ -201,9 +211,9 @@ term_mem_destination (j_compress_ptr cinfo)
  */
 
 GLOBAL(void)
-jpeg_stdio_dest (j_compress_ptr cinfo, FILE * outfile)
+jpeg_stdio_dest (j_compress_ptr cinfo, char* outdata, int *pSize)    // 由peg_stdio_dest (j_compress_ptr cinfo, FILE * outfile)改写
 {
-  my_dest_ptr dest;
+my_dest_ptr dest;
 
   /* The destination object is made permanent so that multiple JPEG images
    * can be written to the same file without re-executing jpeg_stdio_dest.
@@ -221,7 +231,11 @@ jpeg_stdio_dest (j_compress_ptr cinfo, FILE * outfile)
   dest->pub.init_destination = init_destination;
   dest->pub.empty_output_buffer = empty_output_buffer;
   dest->pub.term_destination = term_destination;
-  dest->outfile = outfile;
+  /* 修改过的代码 */
+  dest->outdata = outdata;                                // 由dest->outfile = outfile;改写
+  dest->nOutOffset = 0;
+  dest->pSize = pSize;
+  *(dest->pSize)= 0;
 }
 
 

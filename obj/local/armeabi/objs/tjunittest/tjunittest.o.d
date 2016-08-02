@@ -1,5 +1,5 @@
-/home/young/workspace/use_libjpeg_libpng-android/obj/local/armeabi/objs/tjunittest/tjunittest.o: \
- /home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/tjunittest.c \
+/home/young/git/use_libjpeg_libpng-android/obj/local/armeabi/objs/tjunittest/tjunittest.o: \
+ /home/young/git/use_libjpeg_libpng-android/jni/jpeg/tjunittest.c \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/stdio.h \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/sys/cdefs.h \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/sys/cdefs_elf.h \
@@ -31,8 +31,8 @@
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/asm/errno.h \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/asm-generic/errno.h \
  /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/asm-generic/errno-base.h \
- /home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/./tjutil.h \
- /home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/./turbojpeg.h
+ /home/young/git/use_libjpeg_libpng-android/jni/jpeg/./tjutil.h \
+ /home/young/git/use_libjpeg_libpng-android/jni/jpeg/./turbojpeg.h
 
 /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/stdio.h:
 
@@ -96,6 +96,6 @@
 
 /home/young/android-ndk-r10e/platforms/android-21/arch-arm/usr/include/asm-generic/errno-base.h:
 
-/home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/./tjutil.h:
+/home/young/git/use_libjpeg_libpng-android/jni/jpeg/./tjutil.h:
 
-/home/young/workspace/use_libjpeg_libpng-android/jni/jpeg/./turbojpeg.h:
+/home/young/git/use_libjpeg_libpng-android/jni/jpeg/./turbojpeg.h:

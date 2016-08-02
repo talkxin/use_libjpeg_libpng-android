@@ -1,7 +1,7 @@
 # Makefile for libjpeg-turbo
  
 ifneq ($(TARGET_SIMULATOR),true)
- 
+
 ##################################################
 ###                simd                        ###
 ##################################################
@@ -15,24 +15,24 @@ include $(CLEAR_VARS)
 EXTRA_DIST = simd/nasm_lt.sh simd/jcclrmmx.asm simd/jcclrss2.asm simd/jdclrmmx.asm simd/jdclrss2.asm \
 	simd/jdmrgmmx.asm simd/jdmrgss2.asm simd/jcclrss2-64.asm simd/jdclrss2-64.asm \
 	simd/jdmrgss2-64.asm simd/CMakeLists.txt
- 
+
 libsimd_SOURCES_DIST = simd/jsimd_arm_neon.S \
-                       simd/jsimd_arm.c 
+                       simd/jsimd_arm.c
 
 LOCAL_SRC_FILES := $(libsimd_SOURCES_DIST)
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/simd \
                     $(LOCAL_PATH)/android
- 
+
 AM_CFLAGS := -march=armv7-a -mfpu=neon
 AM_CCASFLAGS := -march=armv7-a -mfpu=neon
- 
+
 LOCAL_MODULE_TAGS := debug
- 
+
 LOCAL_MODULE := libsimd
- 
+
 include $(BUILD_STATIC_LIBRARY)
- 
+
 ######################################################
 ###           libjpeg.so                       ##
 ######################################################
@@ -56,7 +56,7 @@ LOCAL_SRC_FILES:= $(libjpeg_SOURCES_DIST)
  
 LOCAL_SHARED_LIBRARIES := libcutils
 LOCAL_STATIC_LIBRARIES := libsimd
- 
+
 LOCAL_C_INCLUDES := $(LOCAL_PATH) 
  
 LOCAL_CFLAGS := -DAVOID_TABLES  -O3 -fstrict-aliasing -fprefetch-loop-arrays  -DANDROID \

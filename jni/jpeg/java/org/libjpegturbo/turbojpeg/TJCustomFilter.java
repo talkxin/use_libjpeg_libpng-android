@@ -26,7 +26,7 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-package org.libjpegturbo.turbojpeg;
+package jpeg.java.org.libjpegturbo.turbojpeg;
 
 import java.awt.*;
 import java.nio.*;
@@ -70,7 +70,7 @@ public interface TJCustomFilter {
    * parameters and/or cropping region for this transform
    */
   public void customFilter(ShortBuffer coeffBuffer, Rectangle bufferRegion,
-    Rectangle planeRegion, int componentID, int transformID,
-    TJTransform transform)
+                           Rectangle planeRegion, int componentID, int transformID,
+                           TJTransform transform)
     throws Exception;
 }

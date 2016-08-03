@@ -44,7 +44,7 @@ public class ImageNativeUtil {
 	private static native String compressBitmap(Bitmap bit, int w, int h, int quality, byte[] fileNameBytes,
 			boolean optimize);
 
-	private static native int zoomcompress(byte[] input, byte[] output, boolean optimize, int q);
+	private static native byte[] zoomcompress(byte[] input, byte[] output, boolean optimize, int q);
 
 	static {
 		// System.loadLibrary("jpegcompress");

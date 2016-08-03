@@ -180,7 +180,7 @@ int write_JPEG_file(const char * filename, unsigned char* image_buffer,
 }
 
 int write_JPEG_file_android(unsigned char* data, int w, int h, int quality,
-		const char* outfilename, jboolean optimize) {
+		unsigned char* outFile, jboolean optimize) {
 	int nComponent = 3;
 	struct jpeg_compress_struct jcs;
 	struct my_error_mgr jem;
@@ -223,7 +223,8 @@ int write_JPEG_file_android(unsigned char* data, int w, int h, int quality,
 	jpeg_finish_compress(&jcs);
 	jpeg_destroy_compress(&jcs);
 	//fclose(f);
-	char* outFile=malloc(nJpgSize);
+	unsigned char* outFile=malloc(nJpgSize);
     memcpy(outFile,jpgBuffer,nJpgSize);
+    *outFile=outFile;
 	return nJpgSize;
 }

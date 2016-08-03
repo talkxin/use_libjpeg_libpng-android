@@ -147,7 +147,7 @@ void imageRule(int* tb_w, int *tb_h, int* q, int w, int h, int quality,
 }
 
 //生成图片的缩略图（图片的一个缩小版本）
-int generate_image_thumbnail(const char* inputFile, const char* outputFile,
+jbyteArray generate_image_thumbnail(const char* inputFile, const char* outputFile,
 		jboolean optimize, int quality) {
 	if (inputFile == NULL || outputFile == NULL)
 		return 0;
@@ -183,12 +183,17 @@ int generate_image_thumbnail(const char* inputFile, const char* outputFile,
 
 	//将缩放后的像素数组保存到jpeg文件
 //	write_JPEG_file(outputFile, img_buf, 65, tb_h, tb_w);
-	int i=write_JPEG_file_android(img_buf, tb_w, tb_h, q, outputFile, optimize);
+    unsigned char* outFile=NULL;
+	int i=write_JPEG_file_android(img_buf, tb_w, tb_h, q, outFile, optimize);
 	free(img_buf);
-	return i;
+
+	jbyte *by = (jbyte*) outFile;
+    jbyteArray jarray = (*env)->NewByteArray(env, i);
+    (*env)->SetByteArrayRegion(env, jarray, 0, i, by);
+	return jarray;
 }
 
-long Java_com_allstar_cinclient_tools_image_ImageNativeUtil_zoomcompress(
+jbyteArray Java_com_allstar_cinclient_tools_image_ImageNativeUtil_zoomcompress(
 		JNIEnv* env, jobject thiz, jbyteArray input, jbyteArray output,
 		jboolean optimize, int quality) {
 	char * inputfile = jstrinTostring(env, input);

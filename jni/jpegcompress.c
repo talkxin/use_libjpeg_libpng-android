@@ -223,8 +223,7 @@ int write_JPEG_file_android(unsigned char* data, int w, int h, int quality,
 	jpeg_finish_compress(&jcs);
 	jpeg_destroy_compress(&jcs);
 	//fclose(f);
-	unsigned char* outFile=malloc(nJpgSize);
+	outFile=malloc(nJpgSize);
     memcpy(outFile,jpgBuffer,nJpgSize);
-    *outFile=outFile;
 	return nJpgSize;
 }

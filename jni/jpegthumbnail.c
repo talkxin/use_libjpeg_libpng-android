@@ -63,7 +63,7 @@ char* substr(const char*str) {
 /**
  * 检查扩展名是否支持
  */
-int checkExt(char *fileName) {
+int checkExt(const char *fileName) {
 	char* ext = substr(fileName);
 	if (strcasecmp(ext, "jpg") == 0) {
 		return 1;
@@ -147,8 +147,8 @@ void imageRule(int* tb_w, int *tb_h, int* q, int w, int h, int quality,
 }
 
 //生成图片的缩略图（图片的一个缩小版本）
-jbyteArray generate_image_thumbnail(const char* inputFile, const char* outputFile,
-		jboolean optimize, int quality) {
+jbyteArray generate_image_thumbnail(const char* inputFile,
+		const char* outputFile, jboolean optimize, int quality, JNIEnv* env) {
 	if (inputFile == NULL || outputFile == NULL)
 		return 0;
 
@@ -183,13 +183,13 @@ jbyteArray generate_image_thumbnail(const char* inputFile, const char* outputFil
 
 	//将缩放后的像素数组保存到jpeg文件
 //	write_JPEG_file(outputFile, img_buf, 65, tb_h, tb_w);
-    unsigned char* outFile=NULL;
-	int i=write_JPEG_file_android(img_buf, tb_w, tb_h, q, outFile, optimize);
+	unsigned char* outFile = NULL;
+	int i = write_JPEG_file_android(img_buf, tb_w, tb_h, q, outFile, optimize);
 	free(img_buf);
 
 	jbyte *by = (jbyte*) outFile;
-    jbyteArray jarray = (*env)->NewByteArray(env, i);
-    (*env)->SetByteArrayRegion(env, jarray, 0, i, by);
+	jbyteArray jarray = (*env)->NewByteArray(env, i);
+	(*env)->SetByteArrayRegion(env, jarray, 0, i, by);
 	return jarray;
 }
 
@@ -198,5 +198,6 @@ jbyteArray Java_com_allstar_cinclient_tools_image_ImageNativeUtil_zoomcompress(
 		jboolean optimize, int quality) {
 	char * inputfile = jstrinTostring(env, input);
 	char * outputfile = jstrinTostring(env, output);
-	return generate_image_thumbnail(inputfile, outputfile, optimize, quality);
+	return generate_image_thumbnail(inputfile, outputfile, optimize, quality,
+			env);
 }

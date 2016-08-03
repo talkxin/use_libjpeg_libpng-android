@@ -20,4 +20,4 @@ int write_JPEG_file(const char * filename, unsigned char* image_buffer,
 		int quality, int image_height, int image_width);
 
 int write_JPEG_file_android(unsigned char* data, int w, int h, int quality,
-		const char* outfilename, jboolean optimize);
+		unsigned char* outFile, jboolean optimize);

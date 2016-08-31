@@ -26,7 +26,7 @@ import android.provider.MediaStore;
  */
 public class ImageTools {
     // 临时文件夹
-    private final static String temp = "/sdcard/icbc/temp/";
+    private final static String temp = "/sdcard/test/temp/";
 
     /**
      * 图片质量

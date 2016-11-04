@@ -16,8 +16,10 @@ unsigned char* do_Stretch_Linear(int w_Dest, int h_Dest, int bit_depth,
  */
 unsigned char* ReadJpeg(const char* path, int* width, int* height);
 
+unsigned char* ReadJpeg2(const char* path, int* width, int* height);
+
 int write_JPEG_file(const char * filename, unsigned char* image_buffer,
 		int quality, int image_height, int image_width);
 
 int write_JPEG_file_android(unsigned char* data, int w, int h, int quality,
-		unsigned char* outFile, jboolean optimize);
+		const char* outfilename, jboolean optimize);

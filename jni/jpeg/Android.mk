@@ -1,5 +1,5 @@
 # Makefile for libjpeg-turbo
- 
+
 ifneq ($(TARGET_SIMULATOR),true)
 
 ##################################################
@@ -36,7 +36,7 @@ include $(BUILD_STATIC_LIBRARY)
 ######################################################
 ###           libjpeg.so                       ##
 ######################################################
- 
+
 include $(CLEAR_VARS)
 
 # From autoconf-generated Makefile
@@ -53,21 +53,21 @@ libjpeg_SOURCES_DIST =  jcapimin.c jcapistd.c jccoefct.c jccolor.c \
 	turbojpeg-mapfile
 
 LOCAL_SRC_FILES:= $(libjpeg_SOURCES_DIST)
- 
+
 LOCAL_SHARED_LIBRARIES := libcutils
 LOCAL_STATIC_LIBRARIES := libsimd
 
-LOCAL_C_INCLUDES := $(LOCAL_PATH) 
- 
+LOCAL_C_INCLUDES := $(LOCAL_PATH)
+
 LOCAL_CFLAGS := -DAVOID_TABLES  -O3 -fstrict-aliasing -fprefetch-loop-arrays  -DANDROID \
         -DANDROID_TILE_BASED_DECODE -DENABLE_ANDROID_NULL_CONVERT
 
 LOCAL_MODULE_PATH := $(TARGET_OUT_OPTIONAL_STATIC_LIBRARY)
- 
-LOCAL_MODULE_TAGS := debug
- 
-LOCAL_MODULE := libjpeg
 
+LOCAL_MODULE_TAGS := debug
+
+LOCAL_MODULE := libjpeg
+LOCAL_LDLIBS := -ljnigraphics -llog
 include $(BUILD_STATIC_LIBRARY)
 
 ######################################################
@@ -95,7 +95,7 @@ LOCAL_MODULE_PATH := $(TARGET_OUT_OPTIONAL_EXECUTABLE)
 LOCAL_MODULE_TAGS := debug
 
 LOCAL_MODULE := cjpeg
-
+LOCAL_LDLIBS := -ljnigraphics -llog
 include $(BUILD_EXECUTABLE)
 
 ######################################################
@@ -123,7 +123,7 @@ LOCAL_MODULE_PATH := $(TARGET_OUT_OPTIONAL_EXECUTABLE)
 LOCAL_MODULE_TAGS := debug
 
 LOCAL_MODULE := djpeg
-
+LOCAL_LDLIBS := -ljnigraphics -llog
 include $(BUILD_EXECUTABLE)
 
 ######################################################
@@ -149,7 +149,7 @@ LOCAL_MODULE_PATH := $(TARGET_OUT_OPTIONAL_EXECUTABLE)
 LOCAL_MODULE_TAGS := debug
 
 LOCAL_MODULE := jpegtran
-
+LOCAL_LDLIBS := -ljnigraphics -llog
 include $(BUILD_EXECUTABLE)
 
 ######################################################
@@ -165,7 +165,7 @@ LOCAL_SRC_FILES:= $(tjunittest_SOURCES)
 
 LOCAL_SHARED_LIBRARIES := libjpeg
 
-LOCAL_C_INCLUDES := $(LOCAL_PATH) 
+LOCAL_C_INCLUDES := $(LOCAL_PATH)
 
 LOCAL_CFLAGS := -DANDROID -DANDROID_TILE_BASED_DECODE -DENABLE_ANDROID_NULL_CONVERT
 
@@ -174,7 +174,7 @@ LOCAL_MODULE_PATH := $(TARGET_OUT_OPTIONAL_EXECUTABLE)
 LOCAL_MODULE_TAGS := debug
 
 LOCAL_MODULE := tjunittest
-
+LOCAL_LDLIBS := -ljnigraphics -llog
 include $(BUILD_EXECUTABLE)
 
 ######################################################
@@ -191,7 +191,7 @@ LOCAL_SRC_FILES:= $(tjbench_SOURCES)
 
 LOCAL_SHARED_LIBRARIES := libjpeg
 
-LOCAL_C_INCLUDES := $(LOCAL_PATH) 
+LOCAL_C_INCLUDES := $(LOCAL_PATH)
 
 LOCAL_CFLAGS := -DBMP_SUPPORTED -DPPM_SUPPORTED \
          -DANDROID -DANDROID_TILE_BASED_DECODE -DENABLE_ANDROID_NULL_CONVERT
@@ -201,7 +201,7 @@ LOCAL_MODULE_PATH := $(TARGET_OUT_OPTIONAL_EXECUTABLE)
 LOCAL_MODULE_TAGS := debug
 
 LOCAL_MODULE := tjbench
-
+LOCAL_LDLIBS := -ljnigraphics -llog
 include $(BUILD_EXECUTABLE)
 
 ######################################################
@@ -217,7 +217,7 @@ LOCAL_SRC_FILES:= $(rdjpgcom_SOURCES)
 
 LOCAL_SHARED_LIBRARIES := libjpeg
 
-LOCAL_C_INCLUDES := $(LOCAL_PATH) 
+LOCAL_C_INCLUDES := $(LOCAL_PATH)
 
 LOCAL_CFLAGS :=  -DANDROID -DANDROID_TILE_BASED_DECODE -DENABLE_ANDROID_NULL_CONVERT
 
@@ -226,7 +226,7 @@ LOCAL_MODULE_PATH := $(TARGET_OUT_OPTIONAL_EXECUTABLE)
 LOCAL_MODULE_TAGS := debug
 
 LOCAL_MODULE := rdjpgcom
-
+LOCAL_LDLIBS := -ljnigraphics -llog
 include $(BUILD_EXECUTABLE)
 
 ######################################################
@@ -242,7 +242,7 @@ LOCAL_SRC_FILES:= $(wrjpgcom_SOURCES)
 
 LOCAL_SHARED_LIBRARIES := libjpeg
 
-LOCAL_C_INCLUDES := $(LOCAL_PATH) 
+LOCAL_C_INCLUDES := $(LOCAL_PATH)
 
 LOCAL_CFLAGS := -DANDROID -DANDROID_TILE_BASED_DECODE -DENABLE_ANDROID_NULL_CONVERT
 
@@ -251,7 +251,7 @@ LOCAL_MODULE_PATH := $(TARGET_OUT_OPTIONAL_EXECUTABLE)
 LOCAL_MODULE_TAGS := debug
 
 LOCAL_MODULE := wrjpgcom
-
+LOCAL_LDLIBS := -ljnigraphics -llog
 include $(BUILD_EXECUTABLE)
 
 endif  # TARGET_SIMULATOR != true

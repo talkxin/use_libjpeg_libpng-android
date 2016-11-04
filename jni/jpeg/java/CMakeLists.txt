@@ -5,14 +5,17 @@ set(JAVA_CLASSNAMES org/libjpegturbo/turbojpeg/TJ
   org/libjpegturbo/turbojpeg/TJCompressor
   org/libjpegturbo/turbojpeg/TJCustomFilter
   org/libjpegturbo/turbojpeg/TJDecompressor
+  org/libjpegturbo/turbojpeg/TJException
   org/libjpegturbo/turbojpeg/TJScalingFactor
   org/libjpegturbo/turbojpeg/TJTransform
   org/libjpegturbo/turbojpeg/TJTransformer
+  org/libjpegturbo/turbojpeg/YUVImage
   TJUnitTest
-  TJExample)
+  TJExample
+  TJBench)
 
 if(MSVC_IDE)
-  set(OBJDIR "${CMAKE_CURRENT_BINARY_DIR}/$(OutDir)")
+  set(OBJDIR "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_CFG_INTDIR}")
 else()
   set(OBJDIR ${CMAKE_CURRENT_BINARY_DIR})
 endif()

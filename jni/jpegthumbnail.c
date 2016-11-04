@@ -5,6 +5,8 @@
 #include <stdio.h>
 #include "jpegcompress.h"
 #include "pngcompress.h"
+#define TAG    "liuxin"
+#define LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG,TAG,__VA_ARGS__)
 
 char* jstrinTostring(JNIEnv* env, jbyteArray barr) {
 	char* rtn = NULL;
@@ -178,13 +180,13 @@ int generate_image_thumbnail(const char* inputFile, const char* outputFile,
 	}
 	imageRule(&tb_w, &tb_h, &q, w, h, quality, size);
 //	//缩放图片，缩放后的大小为(tb_w,tb_h)
-	unsigned char * img_buf = do_Stretch_Linear(tb_w, tb_h, 24, buff, w, h);
-	free(buff);
+	buff = do_Stretch_Linear(tb_w, tb_h, 24, buff, w, h);
+	//free(buff);
 
 	//将缩放后的像素数组保存到jpeg文件
 //	write_JPEG_file(outputFile, img_buf, 65, tb_h, tb_w);
-	write_JPEG_file_android(img_buf, tb_w, tb_h, q, outputFile, optimize);
-	free(img_buf);
+	write_JPEG_file_android(buff, tb_w, tb_h, q, outputFile, optimize);
+	free(buff);
 	return 1;
 }
 

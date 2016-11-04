@@ -7,7 +7,10 @@
 #include <assert.h>
 #define tmin(a, b) ((a)>(b) ? (b):(a))
 #define tmax(a,b)  ((a) > (b)?(a):(b))
-#define LIGHT_MAP_SIZE 65536*3
+
+#include <android/log.h>
+#define TAG    "liuxin"
+#define LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG,TAG,__VA_ARGS__)
 //!1不要将这三个宏同时打开需要互斥
 
 //#define USE_PREMULTIPLY_APLHA (0)//使用预乘
@@ -85,13 +88,13 @@ unsigned char* ReadPng(const char* path, int* width, int* height) {
 int png_to_jpeg(const char *pngfile, const char *jpegfile, int jpegquality) {
 	FILE *fpin = fopen(pngfile, "rb");
 	if (!fpin) {
-		//perror(pngfile);
 		return 1;
 	}
 
 	unsigned char header[8];
 	fread(header, 1, 8, fpin);
 	if (png_sig_cmp(header, 0, 8)) {
+			LOGD("2");
 		//fprintf(stderr, "this is not a PNG file\n");
 		return 2;
 	}
@@ -124,7 +127,7 @@ int png_to_jpeg(const char *pngfile, const char *jpegfile, int jpegquality) {
 	png_get_IHDR(png_ptr, info_ptr, &width, &height, &bit_depth, &color_type, 0,
 			0, 0);
 
-	if (color_type != PNG_COLOR_TYPE_RGB_ALPHA) {
+	if (color_type != PNG_COLOR_TYPE_RGB_ALPHA && color_type != PNG_COLOR_TYPE_RGB) {
 		//fprintf(stderr, "input PNG must be RGB+Alpha\n");
 		ret = 4;
 		goto error_png;
@@ -137,7 +140,7 @@ int png_to_jpeg(const char *pngfile, const char *jpegfile, int jpegquality) {
 
 	//printf("png is %ldx%ld\n", width, height);
 	int channels = png_get_channels(png_ptr, info_ptr);
-	if (channels != 4) {
+	if (channels != 4 && channels != 3) {
 		//fprintf(stderr, "channels must be 4.\n");
 		ret = 6;
 		goto error_png;
@@ -158,10 +161,7 @@ int png_to_jpeg(const char *pngfile, const char *jpegfile, int jpegquality) {
 
 	cinfo.err = jpeg_std_error(&jerr);
 	jpeg_create_compress(&cinfo);
-//	jpeg_stdio_dest(&cinfo, outfp);
-	char jpgBuffer[LIGHT_MAP_SIZE];
-	int nJpgSize = 0;
-	jpeg_stdio_dest(&cinfo, jpgBuffer, &nJpgSize);
+	jpeg_stdio_dest(&cinfo, outfp);
 
 	cinfo.image_width = width;
 	cinfo.image_height = height;
@@ -173,14 +173,27 @@ int png_to_jpeg(const char *pngfile, const char *jpegfile, int jpegquality) {
 
 	unsigned char *row = malloc(width * 3);
 	while (cinfo.next_scanline < cinfo.image_height) {
-		int x;
+		int x,y;
 		jrow_pointer[0] = row;
 		unsigned char *source = row_pointers[cinfo.next_scanline];
-		for (x = 0; x < width; ++x) {
-			row[x * 3 + 0] = source[0];
-			row[x * 3 + 1] = source[1];
-			row[x * 3 + 2] = source[2];
-			source += 4;
+		switch(color_type){
+            case PNG_COLOR_TYPE_RGB_ALPHA:
+                for (x = 0; x < width; ++x) {
+                			row[x * 3 + 0] = source[0];
+                			row[x * 3 + 1] = source[1];
+                			row[x * 3 + 2] = source[2];
+                			source += 4;
+                     }
+                break;
+
+            case PNG_COLOR_TYPE_RGB:
+                for (x = 0; x < width; ++x) {
+                            row[x * 3 + 0] = source[0];
+                            row[x * 3 + 1] = source[1];
+                            row[x * 3 + 2] = source[2];
+                            source += 3;
+                }
+                break;
 		}
 		jpeg_write_scanlines(&cinfo, jrow_pointer, 1);
 	}
@@ -202,7 +215,7 @@ int testPng() {
 	static png_FILE_p fpin;
 	static png_FILE_p fpout;
 	//输入文件名
-	char *inname = "/sdcard/test/1.png";
+	char *inname = "/sdcard/test/test23.png";
 	char *outname = "/sdcard/test/1-1.png";
 	//读：
 	png_structp read_ptr;

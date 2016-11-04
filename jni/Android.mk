@@ -16,6 +16,26 @@ LOCAL_C_INCLUDES += $(LOCAL_PATH)/zlib
 LOCAL_LDLIBS := -ljnigraphics -llog  
 include $(BUILD_SHARED_LIBRARY)
 
+
+include $(CLEAR_VARS)
+LOCAL_MODULE    := libcrypto
+LOCAL_SRC_FILES := libcrypto.a
+include $(PREBUILT_STATIC_LIBRARY)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE    := libssl
+LOCAL_SRC_FILES := libssl.a
+include $(PREBUILT_STATIC_LIBRARY)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE    := descodejni
+LOCAL_SRC_FILES := descode.c
+LOCAL_STATIC_LIBRARIES := libssl
+LOCAL_STATIC_LIBRARIES += libcrypto
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/openssl
+include $(BUILD_SHARED_LIBRARY)
+
+
 include $(CLEAR_VARS)
 
-include $(LOCAL_PATH)/jpeg/Android.mk  $(LOCAL_PATH)/png/Android.mk $(LOCAL_PATH)/zlib/Android.mk 
+include $(LOCAL_PATH)/jpeg/Android.mk  $(LOCAL_PATH)/png/Android.mk $(LOCAL_PATH)/zlib/Android.mk

@@ -95,16 +95,15 @@ void imageRule(int* tb_w, int *tb_h, int* q, int w, int h, int quality,
 	switch (quality) {
 	case 1:
 		if (size > 1024 * 200) {
+		    if(w > h?w/h:h/w<10){
 			*tb_w = w > h ? 1280 : ((int) (1280 / (float) (1.0 * h / w)));
 			*tb_h = h > w ? 1280 : ((int) (1280 / (float) (1.0 * w / h)));
-			//			if (rx / rz == 3 && ry / rz == 2) {
-			//				*tb_w = w > h ? 1280 : 854;
-			//				*tb_h = h > w ? 1280 : 854;
-			//			} else {
-			//				*tb_w = w > h ? 1280 : 720;
-			//				*tb_h = h > w ? 1280 : 720;
-			//			}
 			*q = 65;
+			}else{
+                *tb_w=w;
+                *tb_h = h;
+			    *q=50;
+			}
 		} else {
 			*tb_w = w;
 			*tb_h = h;
@@ -115,24 +114,17 @@ void imageRule(int* tb_w, int *tb_h, int* q, int w, int h, int quality,
 		if (size > 1024 * 50) {
 			*tb_w = w > h ? 480 : ((int) (480 / (float) (1.0 * h / w)));
 			*tb_h = h > w ? 480 : ((int) (480 / (float) (1.0 * w / h)));
-			//			if (rx / rz == 3 && ry / rz == 2) {
-			//				*tb_w = w > h ? 390 : 260;
-			//				*tb_h = h > w ? 390 : 260;
-			//			} else {
-			//				*tb_w = w > h ? 480 : 270;
-			//				*tb_h = h > w ? 480 : 270;
-			//			}
 			*q = 50;
 		} else {
 			*tb_w = w;
 			*tb_h = h;
-			*q = 50;
+			*q = 65;
 		}
 		break;
 	case 3:
 		if (size > 1024 * 50) {
-			*tb_w = w / 2;
-			*tb_h = h / 2;
+			*tb_w = 400;
+			*tb_h = 400;
 			*q = 50;
 		} else {
 			*tb_w = w;

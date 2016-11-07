@@ -96,7 +96,7 @@ public class ImageTools {
      * @return
      */
     public static void saveCommpressImage(String inputFilepath, Quality q, String outputFilepath) {
-        ImageNativeUtil.compressBitmap(inputFilepath, outputFilepath, true, q);
+        ImageNativeUtil.compressBitmap(inputFilepath, outputFilepath, false, q);
         //增加方向exif
         setExif(inputFilepath, outputFilepath);
     }

@@ -7,7 +7,9 @@
 http://blog.csdn.net/talkxin
 
 *新增协议修改，参照微信图片分辨率
+
 *升级libjpeg库增加对jpeg图片的压缩速度参数
+
 *新增ssl库
 
 jpegthumbnail.c中包含了图片压缩的具体规则：

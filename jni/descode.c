@@ -87,7 +87,7 @@ jbyteArray Java_com_allstar_cinclient_tools_encryption_BusinessUtiles_ndecrypt(
 	int i = 0;
 	unsigned char* result = decrypt(dk, IV, in, size, &i);
 	jbyte *by = (jbyte*) result;
-	jbyteArray jarray = (*env)->NewByteArray(env,  i);
+	jbyteArray jarray = (*env)->NewByteArray(env,  i >= 0 ? i : 0);
 	(*env)->SetByteArrayRegion(env, jarray, 0,  i, by);
 	return jarray;
 }
@@ -100,7 +100,7 @@ jbyteArray Java_com_allstar_cinclient_tools_encryption_BusinessUtiles_nencrypt(
 	int i = 0;
 	unsigned char* result = encrypt(dk, IV, in, size, &i);
 	jbyte *by = (jbyte*) result;
-	jbyteArray jarray = (*env)->NewByteArray(env, size + i);
+	jbyteArray jarray = (*env)->NewByteArray(env, size + (i >= 0 ? i : 0));
 	(*env)->SetByteArrayRegion(env, jarray, 0, size + i, by);
 	return jarray;
 }

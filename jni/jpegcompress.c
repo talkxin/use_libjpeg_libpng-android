@@ -7,9 +7,7 @@
 #include "jversion.h"
 //#include "config.h"
 #include "jpegcompress.h"
-
 #include <android/log.h>
-
 #define TAG    "liuxin"
 #define LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG,TAG,__VA_ARGS__)
 
@@ -44,19 +42,17 @@ unsigned char* ReadJpeg(const char* path, int* width, int* height) {
 	my_err.pub.error_exit = my_error_exit;
 
 	if (setjmp(my_err.setjmp_buffer)) {
-		printf("Error occured\n");
 		jpeg_destroy_decompress(&info);
 		fclose(file);
 		return NULL;
 	}
 
-	jpeg_create_decompress(&info); //fills info structure
-	jpeg_stdio_src(&info, file);        //void
+	jpeg_create_decompress(&info);
+	jpeg_stdio_src(&info, file);
 
 	int ret_Read_Head = jpeg_read_header(&info, 1); //int
 
 	if (ret_Read_Head != JPEG_HEADER_OK) {
-		printf("jpeg_read_header failed\n");
 		fclose(file);
 		jpeg_destroy_decompress(&info);
 		return NULL;
@@ -243,30 +239,28 @@ int write_JPEG_file(const char * filename, unsigned char* image_buffer,
 		return 0;
 	struct jpeg_compress_struct cinfo;
 	struct jpeg_error_mgr jerr;
-	FILE * outfile; /* target file */
-	JSAMPROW row_pointer[1]; /* pointer to JSAMPLE row[s] */
-	int row_stride; /* physical row width in image buffer */
+	FILE * outfile;
+	JSAMPROW row_pointer[1];
+	int row_stride;
 	cinfo.err = jpeg_std_error(&jerr);
-	/* Now we can initialize the JPEG compression object. */
 	jpeg_create_compress(&cinfo);
 
 	if ((outfile = fopen(filename, "wb")) == NULL) {
-		fprintf(stderr, "can't open %s\n", filename);
 		return 0;
 	}
 	jpeg_stdio_dest(&cinfo, outfile);
 
-	cinfo.image_width = image_width; /* image width and height, in pixels */
+	cinfo.image_width = image_width;
 	cinfo.image_height = image_height;
-	cinfo.input_components = 3; /* # of color components per pixel */
-	cinfo.in_color_space = JCS_RGB; /* colorspace of input image */
+	cinfo.input_components = 3;
+	cinfo.in_color_space = JCS_RGB;
 
 	jpeg_set_defaults(&cinfo);
-	jpeg_set_quality(&cinfo, quality, TRUE /* limit to baseline-JPEG values */);
+	jpeg_set_quality(&cinfo, quality, TRUE );
 
 	jpeg_start_compress(&cinfo, TRUE);
 
-	row_stride = image_width * 3; /* JSAMPLEs per row in image_buffer */
+	row_stride = image_width * 3;
 
 	while (cinfo.next_scanline < cinfo.image_height) {
 		row_pointer[0] = &image_buffer[cinfo.next_scanline * row_stride];

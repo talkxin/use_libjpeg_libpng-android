@@ -95,7 +95,7 @@ void imageRule(int* tb_w, int *tb_h, int* q, int w, int h, int quality,
 	switch (quality) {
 	case 1:
 		if (size > 1024 * 200) {
-		    if(w > h?w/h:h/w<10){
+		    if(w > h?w/h:h/w<4){
 			*tb_w = w > h ? 1280 : ((int) (1280 / (float) (1.0 * h / w)));
 			*tb_h = h > w ? 1280 : ((int) (1280 / (float) (1.0 * w / h)));
 			*q = 65;

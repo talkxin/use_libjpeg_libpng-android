@@ -18,6 +18,9 @@ import android.graphics.BitmapFactory.Options;
 import android.media.ExifInterface;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.util.Log;
+
+import com.example.use_libjpeg_libpng_android.MD5Util;
 
 /**
  * 操作图片的工具类
@@ -30,6 +33,9 @@ public class ImageTools {
 
     /**
      * 图片质量
+     * Big--大图质量，按照720p图片压缩标准进行压缩
+     * Thum--缩略图质量，按照480p图片压缩标准进行压缩
+     * Portrait--头像压缩标准，按照才剪完以后的图片进行头像压缩的预留枚举值
      *
      * @author young
      */
@@ -82,6 +88,7 @@ public class ImageTools {
         ImageNativeUtil.compressBitmap(inputFilepath, jpegTrueFile.getAbsolutePath(), true, q);
         //增加方向exif
         setExif(inputFilepath, jpegTrueFile.getAbsolutePath());
+
         byte[] newf = getBytesFromFile(jpegTrueFile);
         jpegTrueFile.delete();
         return newf;
@@ -133,17 +140,20 @@ public class ImageTools {
 
     /**
      * 加入方向exif
+     *
      * @param input
      * @param output
      */
-    private static void setExif(String input, String output) {
+    public static void setExif(String input, String output) {
         try {
-            ExifInterface inexif = new ExifInterface(input);
             ExifInterface outexif = new ExifInterface(output);
-            String smodel = inexif.getAttribute(ExifInterface.TAG_ORIENTATION);
-            outexif.setAttribute(ExifInterface.TAG_ORIENTATION, smodel);
+            outexif.setAttribute("UserComment", MD5Util.getMD5String("liuxin".getBytes()));
             outexif.saveAttributes();
+            ExifInterface inexif = new ExifInterface(input);
+            String smodel = inexif.getAttribute("UserComment");
+            Log.i("liuxin", smodel);
         } catch (IOException e) {
+            e.printStackTrace();
         }
 
     }

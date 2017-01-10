@@ -35,71 +35,6 @@ public class MainActivity extends Activity {
         testJpeg();
     }
 
-    public synchronized static byte[] getCompressedRebuildImage(Context context, Uri imageUri, int qul, int widthLimit, int heightLimit) {
-        byte[] ret = null;
-        InputStream in = null;
-        ByteArrayOutputStream os = null;
-        try {
-
-            String uriContent = imageUri.toString();
-            Uri uri = null;
-            if (uriContent.indexOf("://") <= 0) {
-                uri = Uri.fromFile(new File(uriContent));
-            } else {
-                uri = imageUri;
-            }
-            in = context.getContentResolver().openInputStream(uri);
-            // Decode image size
-            Bitmap b = BitmapFactory.decodeStream(in, null, null);
-            in.close();
-
-            // resize to desired dimensions
-            int outHeight = b.getHeight();
-            int outWidth = b.getWidth();
-            if (!(outWidth < widthLimit && outHeight < heightLimit)) {
-                float sx = new BigDecimal(widthLimit).divide(new BigDecimal(outWidth), 4, BigDecimal.ROUND_DOWN).floatValue();
-                float sy = new BigDecimal(heightLimit).divide(new BigDecimal(outHeight), 4, BigDecimal.ROUND_DOWN).floatValue();
-                sx = (sx < sy ? sx : sy);
-                sy = sx;
-                Matrix matrix = new Matrix();
-                matrix.postScale(sx, sy);
-                b = Bitmap.createBitmap(b, 0, 0, outWidth, outHeight, matrix, true);
-            }
-            //b.recycle();
-            os = new ByteArrayOutputStream();
-            b.compress(Bitmap.CompressFormat.JPEG, qul, os);
-            if (!b.isRecycled()) {
-                b.recycle();
-                b = null;
-            }
-            ret = os.toByteArray();
-            return ret;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        } finally {
-            if (os != null) {
-                try {
-                    os.close();
-                    os = null;
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (in != null) {
-                try {
-                    in.close();
-                    in = null;
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
     private void testJpeg() {
         new Thread(new Runnable() {
             /**
@@ -140,11 +75,9 @@ public class MainActivity extends Activity {
 
             public void run() {
                 try {
-                    String file = "/sdcard/test/yasuoBIGx.jpg";
+                    String file = "/sdcard/test/1111.jpg";
                     Log.i("liuxin", "start");
                     ImageTools.saveCommpressImage(file, Quality.BIG, "/sdcard/test/yasuoBIG.jpg");
-                    Log.i("liuxin", "end");
-                    getFileFromBytes(getCompressedRebuildImage(MainActivity.this, Uri.fromFile(new File(file)), 65, 1280, 720), "/sdcard/test/yasuoBIG1.jpg");
                     Log.i("liuxin", "end");
                 } catch (Exception e) {
                     // TODO Auto-generated catch block

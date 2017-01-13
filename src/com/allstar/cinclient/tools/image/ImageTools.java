@@ -149,9 +149,6 @@ public class ImageTools {
             ExifInterface outexif = new ExifInterface(output);
             outexif.setAttribute("UserComment", MD5Util.getMD5String("liuxin".getBytes()));
             outexif.saveAttributes();
-            ExifInterface inexif = new ExifInterface(input);
-            String smodel = inexif.getAttribute("UserComment");
-            Log.i("liuxin", smodel);
         } catch (IOException e) {
             e.printStackTrace();
         }

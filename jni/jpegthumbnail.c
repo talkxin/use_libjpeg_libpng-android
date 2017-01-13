@@ -87,7 +87,7 @@ int checkExt(char *fileName) {
  * 3，质量为50的图
  * 4，超小图115*115，质量为10
  */
-void imageRule(int* tb_w, int *tb_h, int* q, int w, int h, int quality,
+int imageRule(int* tb_w, int *tb_h, int* q, int w, int h, int quality,
 		long size) {
 	int rx = w > h ? w : h;
 	int ry = w > h ? h : w;
@@ -100,9 +100,10 @@ void imageRule(int* tb_w, int *tb_h, int* q, int w, int h, int quality,
 			*tb_h = h > w ? 1280 : ((int) (1280 / (float) (1.0 * w / h)));
 			*q = 65;
 			}else{
-                *tb_w=w;
-                *tb_h = h;
-			    *q=50;
+			    *tb_w = w;
+			    *tb_h = h;
+			    *q = 65;
+                return 0;
 			}
 		} else {
 			*tb_w = w;
@@ -138,6 +139,7 @@ void imageRule(int* tb_w, int *tb_h, int* q, int w, int h, int quality,
 		*q = 10;
 		break;
 	}
+	return 1;
 }
 
 //生成图片的缩略图（图片的一个缩小版本）
@@ -170,10 +172,10 @@ int generate_image_thumbnail(const char* inputFile, const char* outputFile,
 		printf("ReadJpeg Failed\n");
 		return 0;
 	}
-	imageRule(&tb_w, &tb_h, &q, w, h, quality, size);
-//	//缩放图片，缩放后的大小为(tb_w,tb_h)
+	if(imageRule(&tb_w, &tb_h, &q, w, h, quality, size)!=0){
+	//缩放图片，缩放后的大小为(tb_w,tb_h)
 	buff = do_Stretch_Linear(tb_w, tb_h, 24, buff, w, h);
-	//free(buff);
+	}
 
 	//将缩放后的像素数组保存到jpeg文件
 //	write_JPEG_file(outputFile, img_buf, 65, tb_h, tb_w);
